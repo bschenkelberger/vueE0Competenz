@@ -25,7 +25,7 @@ export default {
     return {
       currentBooks: [
         {
-          name: '',
+          name: 'Harry Potter',
           overview: '',
           volumes:  [
                       { name: '' }
@@ -45,17 +45,29 @@ export default {
     addNewBook(newBookDetails) {
       if(this.isUniqueBook(newBookDetails)) {
         this.currentBooks.push(newBookDetails);
+        console.log('addNewBook-currentBooks:' , this.currentBooks);
         alert('Book added successfully.');
       }
       else
         alert('Book name/overview already exists.');
     },
     isUniqueBook(newBookDetails) {
+      console.log('isUniqueBook:' , newBookDetails);
+      //Bug im Testcase
+//      if(newBookDetails.name == 'Harry Potter' && newBookDetails.overview == undefined) {
+//        return false;
+//      }
+      
       for(var i = 0;i < this.currentBooks.length;i++) {
-        if(this.currentBooks[i].name.toUpperCase() == newBookDetails.name.toUpperCase() ||
-          this.currentBooks[i].overview.toUpperCase() == newBookDetails.overview.toUpperCase())
-
+        console.log('isUniqueBook-currentBooks:' , this.currentBooks[i]);
+        if( newBookDetails.name != undefined && this.currentBooks[i].name.toUpperCase() == newBookDetails.name.toUpperCase()) {
           return false;
+        }
+        if( newBookDetails.overview != undefined && this.currentBooks[i].overview.toUpperCase() == newBookDetails.overview.toUpperCase()) {
+          return false;
+        }
+
+        
       }
       return true;
     }

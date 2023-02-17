@@ -9,6 +9,7 @@ describe('Book.vue', () => {
 
   it('should render correct name', () => {
     const vm = getHandle()
+    console.log('Test:' , vm.$el);
     expect(vm.$el.querySelector('.book div.book-title').textContent)
       .to.equal('Harry Potter')
   })

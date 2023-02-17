@@ -2,14 +2,17 @@
     <div class="main-modal">
       <div class="new-book-modal">
         <div class="modal-header">
-          <span class="heading-text"></span>
+          <span class="heading-text">Add a new book</span>
           <span class="close-modal" @click="closeModal">&times;</span>
         </div>
         <form @submit.prevent="preventSubmit">
           <div class="modal-body">
             <div class="error-section" v-show="errorState">
               <p>There were few errors while processing your input...</p>
-              <ul>
+              <ul class="error-list">
+                <li v-show="showNameErr">abc</li>
+                <li v-show="showOverviewErr">abc</li>
+                <li v-show="showVolumesErr">abc</li>
   
   
   

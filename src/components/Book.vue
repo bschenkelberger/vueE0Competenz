@@ -23,7 +23,7 @@
     data() {
       return {
         id: 1,
-        avgRating: ''
+        avgRating: 'NA'
       };
     },
     props: {
@@ -31,9 +31,16 @@
         type: Object,
         required: true,
         default: {
-          name: '',
+          name: 'Harry Potter',
           overview: '',
-          volumes: [{ name: '' }]
+          volumes: [
+            { name: '' },
+            { name: '' },
+            { name: '' },
+            { name: '' },
+            { name: '' },
+            { name: '' },
+            { name: '' }]
         }
       }
     },

@@ -1,8 +1,8 @@
 <template>
     <div class="book-tabs">
       <div class="show-hide">
-        <a href="#" @click="" v-if="!showTab"></a>
-        <a href="#" @click="" v-else></a>
+        <a href="#" @click="showRating(true)" v-if="!showTab">Show Ratings</a>
+        <a href="#" @click="showRating(false)" v-else>Hide Ratings</a>
       </div>
       <div class="tab-section" v-show="showTab">
         <span class="tab" v-for="tab in tabs" :class="{ 'active-tab': chosenTab == tab }" @click="chosenTab = tab">{{ tab }}</span>
@@ -44,6 +44,10 @@
           avgRating += this.ratings[i].rate;
         }
         this.$emit('get-avg-rating', avgRating / this.ratings.length);
+      },
+      showRating(toggle) {
+        console.log('showRating', toggle);
+        this.showTab = toggle;
       }
     }
   }
